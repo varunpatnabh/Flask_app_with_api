@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Word Count</title>
+</head>
+<body>
+    <h1>Uploaded PDF Word Count</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Word Count</th>
+                <th>Error</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in word_count_data %}
+            <tr>
+                <td>{{ file.filename }}</td>
+                <td>{{ file.word_count if 'word_count' in file else 'N/A' }}</td>
+                <td>{{ file.error if 'error' in file else 'N/A' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
